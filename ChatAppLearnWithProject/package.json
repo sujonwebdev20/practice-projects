@@ -1,0 +1,12 @@
+{
+  "name": "ChatAppLearnWithProject",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "server": "cd backend && yarn dev",
+    "frontend": "cd frontend && yarn dev",
+    "dev": "concurrently \"yarn server\" \"yarn frontend\""
+  },
+  "dependencies": {}
+}

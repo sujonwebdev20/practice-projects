@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.js"
+      defer
+    ></script>
+    <script src="/js/app.js" defer></script>
+    <title>Realtime Comment System</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row mt-4">
+        <div class="col-md-12">
+          <h4 class="fw-bold">
+            Realtime comment system using JavaScript and socket.io
+          </h4>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto
+            soluta exercitationem fugiat totam pariatur tempore ab deleniti
+            delectus quod illum quia voluptate, earum consequatur accusantium
+            accusamus voluptas sed dicta incidunt? soluta exercitationem fugiat
+            totam pariatur tempore ab deleniti delectus quod illum quia
+            voluptate, earum consequatur accusantium accusamus voluptas sed
+            dicta incidunt?
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h4 class="border-bottom pb-2">Comments</h4>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="">Write a comment</label>
+            <textarea
+              name=""
+              id="textarea"
+              rows="3"
+              class="form-control"
+            ></textarea>
+          </div>
+        </div>
+        <div class="col-md-12 d-flex justify-content-end">
+          <button id="submitBtn" class="btn btn-primary mt-2 mb-4">
+            Post comment
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="typing text-success"></div>
+          <ul class="comment__box list-unstyled">
+            <!-- <li class="comment">
+              <div class="card border-light mb-3">
+                <div class="card-body">
+                  <h6>John Doe</h6>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Laborum, voluptates nobis odio optio recusandae velit non
+                    soluta corrupti officiis quasi!
+                  </p>
+                  <div class="d-flex align-items-center gap-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      x="0px"
+                      y="0px"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 50 50"
+                    >
+                      <path
+                        d="M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z M 24.984375 6.9863281 A 1.0001 1.0001 0 0 0 24 8 L 24 22.173828 A 3 3 0 0 0 22 25 A 3 3 0 0 0 22.294922 26.291016 L 16.292969 32.292969 A 1.0001 1.0001 0 1 0 17.707031 33.707031 L 23.708984 27.705078 A 3 3 0 0 0 25 28 A 3 3 0 0 0 28 25 A 3 3 0 0 0 26 22.175781 L 26 8 A 1.0001 1.0001 0 0 0 24.984375 6.9863281 z"
+                      ></path>
+                    </svg>
+                    <small class="fs-9">11:30 PM</small>
+                  </div>
+                </div>
+              </div>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

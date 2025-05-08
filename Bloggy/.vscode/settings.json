@@ -1,0 +1,17 @@
+{
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#252526",
+        "statusBar.foreground": "#9da5b4",
+        "activityBar.background": "#0F3502",
+        "titleBar.activeBackground": "#144A03",
+        "titleBar.activeForeground": "#F1FEED"
+    }
+} // {
+//   "workbench.colorCustomizations": {
+//     "statusBar.background": "#252526",
+//     "statusBar.foreground": "#9da5b4",
+//     "activityBar.background": "#0F3502",
+//     "titleBar.activeBackground": "#144A03",
+//     "titleBar.activeForeground": "#F1FEED"
+//   }
+// }
