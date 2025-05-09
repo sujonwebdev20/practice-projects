@@ -1,31 +1,42 @@
-/***** require dependencies *****/
+/* require dependencies */
 const createError = require("http-errors");
 
-/***** Not Found handler *****/
+/* Not Found handler */
 function notFoundHandler(req, res, next) {
-  next(createError(404, "Your requested page was not found!"));
+  return next(createError(404, "Your requested page was not found!"));
 }
 
-/***** Error handler *****/
+/* Error handler */
 function errorHandler(err, req, res, next) {
-  const error =
-    process.env.NODE_ENV === "development" ? err : { message: err.message };
+  const isDevelopmentMode = process.env.NODE_ENV === "development";
+  const error = isDevelopmentMode
+    ? err
+    : { message: err.message, status: err.status };
+  // check is DEVELOPMENT mode or PRODUCTION mode
+  isDevelopmentMode
+    ? console.log("❌ This is development mode ❌", error)
+    : console.log("❌ This is production mode ❌", error);
 
   if (res.headersSent) {
-    next(error);
-  } else {
-    try {
-      res.locals.error = error;
-      res.status(error.status || 500);
+    return next(error);
+  }
 
-      if (res.locals.html) {
-        res.render("pages/error", { title: "Error page" });
-      } else {
-        res.json(error);
-      }
-    } catch (error) {
-      next(error);
+  try {
+    // res.locals.error = error;
+    // res.status(error.status || 500);
+    // console.log(res.locals);
+
+    if (
+      res.locals.html ||
+      process.env.NODE_ENV === "development" ||
+      process.env.NODE_ENV === "production"
+    ) {
+      return res.render("pages/error", { title: res.locals.title, error });
     }
+
+    return res.json({ status: error.status || 500, ...error });
+  } catch (renderError) {
+    next(renderError);
   }
 }
 
