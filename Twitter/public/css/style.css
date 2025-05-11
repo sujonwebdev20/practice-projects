@@ -17,39 +17,24 @@ body {
 button {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-.middler-wrapper {
+
+.signup-form,
+.signin-form {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-.input-field {
-  margin: 10px 0px 0px 0px;
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #e7e7e7;
-  background-color: #f3f3f3;
-  color: #333;
-  font-size: 16px;
-  outline: none;
+.card__title {
+  margin-bottom: 20px;
 }
 
-.input-field:focus {
+.input__field:focus {
   border-color: #03a9f4;
 }
 
-.error {
-  color: #f44336;
-  font-size: 14px;
-  /* margin-top: 5px; */
-  height: 20px;
-  width: 100%;
-  background-color: transparent;
-}
-
-.btn {
+.button--submit {
   margin: 10px 0px;
   width: 100%;
   padding: 10px;
@@ -67,27 +52,27 @@ button {
   text-align: center;
 }
 
-.btn:hover {
+.button--submit:hover {
   background-color: #0288d1;
 }
 
-.btn:active {
+.button--submit:active {
   background-color: #01579b;
 }
 
-.btn:disabled {
+.button--submit:disabled {
   background-color: #b3e5fc;
   cursor: not-allowed;
 }
 
-.redirect-describer {
+.card__footer {
   margin-top: 10px;
   margin-bottom: 13px;
   text-align: center;
   font-size: 15px;
   color: #333;
 }
-.redirect-link {
+.card__link {
   color: #03a9f4;
   font-size: 16px;
   text-decoration-skip-ink: none;
@@ -103,10 +88,10 @@ button {
   padding: 40px;
 }
 
-.redirect-link:hover {
+.card__link:hover {
   color: #0288d1;
 }
 
-.redirect-link:active {
+.card__link:active {
   color: #01579b;
 }

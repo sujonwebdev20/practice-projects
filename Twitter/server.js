@@ -9,6 +9,7 @@ const {
   notFoundHandler,
 } = require("./middlewares/common/errorHandler");
 const authRouter = require("./routes/auth/authRoutes");
+const mongoose = require("mongoose");
 
 /* Configuration */
 dotenv.config();
@@ -32,7 +33,21 @@ app.use(notFoundHandler);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
-/* start server for listen */
-app.listen(PORT, () => {
-  console.log("Server is listening at host: http://localhost:" + PORT + "🛜");
-});
+
+//
+mongoose
+  .connect(process.env.MONGODB_URI, {
+    dbName: "twitter",
+  })
+  .then((value) => {
+    console.log("Database is connected:✅", value.connection.name);
+    /* start server for listen */
+    app.listen(PORT, () => {
+      console.log(
+        "Server is listening at host: http://localhost:" + PORT + "🛜"
+      );
+    });
+  })
+  .catch((error) => {
+    console.log("Database is not connected:❌", error);
+  });

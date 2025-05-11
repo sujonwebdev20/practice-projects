@@ -26,14 +26,12 @@ function errorHandler(err, req, res, next) {
     // res.status(error.status || 500);
     // console.log(res.locals);
 
-    if (
-      res.locals.html ||
-      process.env.NODE_ENV === "development" ||
-      process.env.NODE_ENV === "production"
-    ) {
+    // if route is not present then check res.locals.html if (true) then render error page
+    // when occurs error then check res.locals.html if (true) then render error page
+    if (res.locals.html) {
       return res.render("pages/error", { title: res.locals.title, error });
     }
-
+    // if res.locals.html is (false) then return json error
     return res.json({ status: error.status || 500, ...error });
   } catch (renderError) {
     next(renderError);

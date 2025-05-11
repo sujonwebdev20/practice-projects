@@ -1,12 +1,14 @@
 /* Require dependencies */
 const dotenv = require("dotenv");
 const { Router } = require("express");
+const decorateHtmlResponse = require("../../middlewares/common/decorateHtmlResponse");
+const { notFoundHandler } = require("../../middlewares/common/errorHandler");
 const {
   getLogin,
   getRegister,
+  register,
 } = require("../../controllers/auth/authControllers");
-const decorateHtmlResponse = require("../../middlewares/common/decorateHtmlResponse");
-const { notFoundHandler } = require("../../middlewares/common/errorHandler");
+const avatarUpload = require("../../middlewares/common/auth/avatarUpload");
 
 dotenv.config();
 
@@ -22,15 +24,21 @@ router.get(
 /* Register router */
 router.get(
   "/register",
-  decorateHtmlResponse(`${process.env.APP_NAME} - register`),
+  decorateHtmlResponse(`${process.env.APP_NAME} - SignUp`),
   getRegister
+);
+router.post(
+  "/register",
+  decorateHtmlResponse(`${process.env.APP_NAME} - SignUp`),
+  avatarUpload,
+  register
 );
 
 /* Not found router */
 router.get(
   "/*",
-  notFoundHandler,
-  decorateHtmlResponse(`${process.env.APP_NAME} - Not found`)
+  decorateHtmlResponse(`${process.env.APP_NAME} - Not found`),
+  notFoundHandler
 );
 
 module.exports = router;
