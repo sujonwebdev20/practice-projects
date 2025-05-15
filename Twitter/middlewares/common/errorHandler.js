@@ -13,9 +13,11 @@ function errorHandler(err, req, res, next) {
     ? err
     : { message: err.message, status: err.status };
   // check is DEVELOPMENT mode or PRODUCTION mode
-  isDevelopmentMode
-    ? console.log("❌ This is development mode ❌", error)
-    : console.log("❌ This is production mode ❌", error);
+
+  console.log(
+    `❌ This error from errorHandler.js ❌ 👉${__filename}:👈 `,
+    error
+  );
 
   if (res.headersSent) {
     return next(error);

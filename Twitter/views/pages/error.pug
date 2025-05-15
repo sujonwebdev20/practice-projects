@@ -5,7 +5,9 @@ block title
 
 block bodyContent 
   div(style={height: "100vh", display: "grid", "place-items": "center", })
-    div(style={margin: "auto", width: "600px",}) 
-      h4(style={"font-size": "30px","text-align": "center"})= error.message 
-      h3(style={"text-align": "center"})= error.status 
+    div(style={margin: "auto", width: "80%",}) 
+      h4(style={"font-size": "30px","text-align": "left"})= error.message 
+      h3(style={"text-align": "left"})= error.status 
+      br
+      br
       p= error.stack 

@@ -10,7 +10,7 @@ block jsLink
   script(src="/js/register.js" defer)
 
 block bodyContent 
-  section(class="signup-form") 
+  section.signup-form
     //- login card start -//
     article(class="card card--signup") 
       svg(class="card__logo" xmlns='http://www.w3.org/2000/svg', x='0px', y='0px', width='80', height='80', viewBox='0 0 48 48')
@@ -21,40 +21,59 @@ block bodyContent
         //- get (First Name) from input field
         div(class="input input--firstname")
           label(for="firstName") 
-          input(type="text", class="input__field" id="firstName" placeholder="Enter your First Name" name="firstName" required)
-          p(class="input__error input__error--visible-firstName") First Name is required
+          input(type="text", class="input__field" id="firstName" placeholder="Enter your First Name" name="firstName" required
+          value=user ? user.firstName : "")
+        if error.firstName
+          p(class="input__error input__error--visible-firstName")= error.firstName.message
+        
         //- get (Last Name) from input field
         div(class="input input--lastname")
           label(for="lastName") 
-          input(type="text", class="input__field" id="lastName" placeholder="Enter your Last Name" name="LastName" required)
-          p(class="input__error input__error--visible-lastName") Last Name is required
+          input(type="text", class="input__field" id="lastName" placeholder="Enter your Last Name" name="LastName" required
+          value=user ? user.lastName : "")
+        if error.lastName
+          p(class="input__error input__error--visible-lastName")= error.lastName.message
+        
         //- get (Email Address) from input field
         div(class="input input--email")
           label(for="email") 
-          input(type="email", class="input__field" id="email" placeholder="Email address" name="email" required)
-          p(class="input__error input__error--visible-email") Email is required
+          input(type="email", class="input__field" id="email" placeholder="Email address" name="email" required
+          value=user ? user.email : "")
+        if error.email
+          p(class="input__error input__error--visible-email")= error.email.message
+        
         //- get (Username) from input field
         div(class="input input--username")
           label(for="username") 
-          input(type="text", class="input__field" id="username" placeholder="Username" name="username" required)
-          p(class="input__error input__error--visible-username") Username is required
+          input(type="text", class="input__field" id="username" placeholder="Username" name="username" required
+          value=user ? user.username : "")
+        if error.username
+          p(class="input__error input__error--visible-username")= error.username.message
+        
         //- get (Password) from input field
         div(class="input input--password")
           label(for="password") 
-          input(type="password", class="input__field" id="password" placeholder="Password" name="password" required)
-          p(class="input__error input__error--visible-password") Password is required
+          input(type="password", class="input__field" id="password" placeholder="Password" name="password" required
+          value=user ? user.password : "")
+        if error.password
+          p(class="input__error input__error--visible-password")= error.password.message
+        
         //- get (Confirm Password) from input field
         div(class="input input--confirm-password")
           label(for="confirmPassword") 
-          input(type="password", class="input__field" id="confirmPassword" placeholder="Confirm Password" name="confirmPassword" required)
-          p(class="input__error input__error--visible-confirm-password") Confirm Password is required
+          input(type="password", class="input__field" id="confirmPassword" placeholder="Confirm Password" name="confirmPassword" required
+          value=user ? user.confirmPassword : "")
+        if error.confirmPassword
+          p(class="input__error input__error--visible-confirm-password")= error.confirmPassword.message
+        
         //- get (Profile) from input field
         div(class="avatar-upload avatar-upload--profile")
-          label(class="avatar-upload__label" for="avatar") Choose a file
-            figure(class="avatar-upload__image-placeholder")
-              svg(class="avatar-upload__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17")
-                path(d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z") 
-          input(type="file", class="avatar-upload__field" id="avatar" placeholder="Confirm Password" name="avatar" accept=".jpg, .png, .jpeg")
+          label(class="avatar-upload__label" for="avatar")
+            //- figure(class="avatar-upload__image-placeholder")
+            //-   svg(class="avatar-upload__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17")
+            //-     path(d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z") 
+          input(type="file", class="avatar-upload__field" id="avatar" name="avatar" accept=".jpg, .png, .jpeg, .svg")
+        
         //- (Submit) forms button
         button(class="button button--submit") Sign Up
         //- form end -//

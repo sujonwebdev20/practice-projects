@@ -8,7 +8,7 @@ const {
   getRegister,
   register,
 } = require("../../controllers/auth/authControllers");
-const avatarUpload = require("../../middlewares/common/auth/avatarUpload");
+const avatarUpload = require("../../middlewares/common/avatarUpload");
 
 dotenv.config();
 

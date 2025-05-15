@@ -13,7 +13,7 @@ const getLogin = (req, res, next) => {
 /* Get register page */
 const getRegister = (req, res, next) => {
   try {
-    res.render("pages/register", { title: res.locals.title });
+    res.render("pages/register", { title: res.locals.title, error: {} });
   } catch (error) {
     next(error);
   }
